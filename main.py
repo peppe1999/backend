@@ -65,10 +65,9 @@ def update_booking(booking_id: int, updated_booking: Booking):
 
 @app.delete("/api/bookings/{booking_id}")
 def delete_booking(booking_id: int):
-    """Elimina una prenotazione."""
     for booking in bookings:
         if booking.id == booking_id:
             bookings.remove(booking)
-            return {"message": f"Prenotazione con ID {booking_id} eliminata con successo."}
+            return {"message": f"Prenotazione con ID {booking_id} eliminata con successo"}
 
     raise HTTPException(status_code=404, detail="Prenotazione non trovata")
