@@ -32,13 +32,13 @@ def get_booking(booking_id: int):
     for booking in bookings:
         if booking.id == booking_id:
             return booking
-    raise HTTPException(status_code=404, detail="Prenotazione non trovata.")
+    raise HTTPException(status_code=404, detail="Prenotazione non trovata")
 
 @app.post("/api/bookings", response_model=Booking)
 def create_booking(booking: Booking):
     for existing_booking in bookings:
         if existing_booking.date == booking.date and existing_booking.time == booking.time:
-            raise HTTPException(status_code=400, detail="Orario già occupato!")
+            raise HTTPException(status_code=400, detail="Orario già occupato")
 
     bookings.append(booking)
     return booking
@@ -53,7 +53,7 @@ def update_booking(booking_id: int, updated_booking: Booking):
                     and existing_booking.date == updated_booking.date
                     and existing_booking.time == updated_booking.time
                 ):
-                    raise HTTPException(status_code=400, detail="Orario già occupato!")
+                    raise HTTPException(status_code=400, detail="Orario già occupato")
 
             # Aggiorna la prenotazione
             booking.date = updated_booking.date
@@ -61,7 +61,7 @@ def update_booking(booking_id: int, updated_booking: Booking):
             booking.guests = updated_booking.guests
             return booking
 
-    raise HTTPException(status_code=404, detail="Prenotazione non trovata.")
+    raise HTTPException(status_code=404, detail="Prenotazione non trovata")
 
 @app.delete("/api/bookings/{booking_id}")
 def delete_booking(booking_id: int):
@@ -71,6 +71,4 @@ def delete_booking(booking_id: int):
             bookings.remove(booking)
             return {"message": f"Prenotazione con ID {booking_id} eliminata con successo."}
 
-    raise HTTPException(status_code=404, detail="Prenotazione non trovata.")
-
-
+    raise HTTPException(status_code=404, detail="Prenotazione non trovata")
