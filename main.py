@@ -72,3 +72,5 @@ def delete_booking(booking_id: int):
             return {"message": f"Prenotazione con ID {booking_id} eliminata con successo."}
 
     raise HTTPException(status_code=404, detail="Prenotazione non trovata.")
+
+
