@@ -55,7 +55,6 @@ def update_booking(booking_id: int, updated_booking: Booking):
                 ):
                     raise HTTPException(status_code=400, detail="Orario già occupato")
 
-            # Aggiorna la prenotazione
             booking.date = updated_booking.date
             booking.time = updated_booking.time
             booking.guests = updated_booking.guests
@@ -68,6 +67,6 @@ def delete_booking(booking_id: int):
     for booking in bookings:
         if booking.id == booking_id:
             bookings.remove(booking)
-            return {"message": f"Prenotazione con ID {booking_id} eliminata con successo"}
+            return {"message": f"Prenotazione numero: {booking_id} eliminata con successo"}
 
     raise HTTPException(status_code=404, detail="Prenotazione non trovata")
