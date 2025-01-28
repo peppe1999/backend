@@ -4,7 +4,7 @@
 
 ##Installazione##
 Esegui il comando seguente per installare le dipendenze necessarie: pip install fastapi uvicorn pydantic
-Per avviare l'applicazione, spostati nella directory src e invia il comando uvicorn main:app --reload
+Per avviare l'applicazione,  dalla directory del progetto invia il comando uvicorn main:app --reload
 
 Una volta avviata, l'applicazione sarà accessibile all'indirizzo:
 http://127.0.0.1:8000/api/bookings  dove andremo a visualizzare tutte le prenotazioni che verranno effettuate
