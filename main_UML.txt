@@ -1,0 +1,11 @@
+@startuml
+class Booking {
+    get_bookings()
+    get_booking()
+    create_booking()
+    update_booking()
+    delete_booking()
+        __init__()
+}
+BaseModel <|-- Booking
+@enduml
